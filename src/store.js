@@ -1,8 +1,11 @@
 import {createStore, compose, applyMiddleware} from 'redux'
 import ruleMiddleware from 'redux-ruleset'
+import usersModule from './modules/users'
 
-function rootReducer (state, action) {
-  return 'foo'
+function rootReducer (state={}, action) {
+  return {
+    users: usersModule(state.users, action)
+  }
 }
 
 let composeEnhancers = compose
