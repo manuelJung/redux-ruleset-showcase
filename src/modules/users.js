@@ -11,7 +11,7 @@ export const INIT = 'users/INIT'
 export const defaultState = {
   isFetching: false,
   fetchError: null,
-  users: null,
+  hits: null,
   filters: {
     gender: 'all',
     numHits: 10
@@ -31,7 +31,7 @@ export default function reducer (state=defaultState, action) {
     case FETCH_SUCCESS: return {
       ...state,
       isFetching: false,
-      users: action.payload
+      hits: action.payload
     }
     case FETCH_FAILURE: return {
       ...state,
@@ -52,6 +52,7 @@ export default function reducer (state=defaultState, action) {
         numHits: action.payload
       }
     }
+    default: return state
   }
 }
 
@@ -108,4 +109,19 @@ addRule({
     const state = getState()
     return fetchRequest(state.users.filters)
   }
+})
+
+addRule({
+  id: 'users/PREVENT_INIT',
+  target: INIT,
+  position: 'INSTEAD',
+  condition: (action,getState) => {
+    const state = getState()
+    if(!state.users.hits) return false
+    for (let key in action.payload) {
+      if(action.payload[key] !== state.users.filters[key]) return false
+    }
+    return true
+  },
+  consequence: () => null
 })
