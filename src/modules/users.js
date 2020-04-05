@@ -124,7 +124,7 @@ addRule({
  * When users/INIT gets dispatched
  * and we already have results
  * and the filters did not change
- * Then the actions should get canceled
+ * Then the action should get canceled
  */
 addRule({
   id: 'users/PREVENT_INIT',
