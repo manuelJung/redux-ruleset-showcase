@@ -1,6 +1,7 @@
 import {createStore, compose, applyMiddleware} from 'redux'
 import ruleMiddleware from 'redux-ruleset'
 import usersModule from './modules/users'
+import './modules/tracking'
 
 function rootReducer (state={}, action) {
   return {

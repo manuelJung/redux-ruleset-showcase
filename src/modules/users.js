@@ -1,11 +1,11 @@
 import {addRule} from 'redux-ruleset'
 import * as api from '../api'
 
-const FETCH_REQUEST = 'users/FETCH_REQUEST'
-const FETCH_SUCCESS = 'users/FETCH_SUCCESS'
-const FETCH_FAILURE = 'users/FETCH_FAILURE'
-const SET_GENDER = 'users/SET_GENDER'
-const SET_NUM_HITS = 'users/SET_NUM_HITS'
+export const FETCH_REQUEST = 'users/FETCH_REQUEST'
+export const FETCH_SUCCESS = 'users/FETCH_SUCCESS'
+export const FETCH_FAILURE = 'users/FETCH_FAILURE'
+export const SET_GENDER = 'users/SET_GENDER'
+export const SET_NUM_HITS = 'users/SET_NUM_HITS'
 
 export const defaultState = {
   isFetching: false,
