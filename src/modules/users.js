@@ -90,6 +90,11 @@ export const setNumHits = numHits => ({
 
 // RULES
 
+/**
+ * When we see a users/FETCH_REQUEST
+ * Then we fetch the new users (by given filters)
+ * and dispatch either users/FETCH_SUCCESS or users/FETCH_FAILURE
+ */
 addRule({
   id: 'users/FETCH',
   target: FETCH_REQUEST,
@@ -101,6 +106,10 @@ addRule({
   )
 })
 
+/**
+ * When an action gets dispatched that changes the filters
+ * Then we want to dispatch users/FETCH_REQUEST
+ */
 addRule({
   id: 'users/TRIGGER_FETCH',
   target: [INIT, SET_GENDER, SET_NUM_HITS],
@@ -111,6 +120,12 @@ addRule({
   }
 })
 
+/**
+ * When users/INIT gets dispatched
+ * and we already have results
+ * and the filters did not change
+ * Then the actions should get canceled
+ */
 addRule({
   id: 'users/PREVENT_INIT',
   target: INIT,
