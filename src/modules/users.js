@@ -6,11 +6,12 @@ export const FETCH_SUCCESS = 'users/FETCH_SUCCESS'
 export const FETCH_FAILURE = 'users/FETCH_FAILURE'
 export const SET_GENDER = 'users/SET_GENDER'
 export const SET_NUM_HITS = 'users/SET_NUM_HITS'
+export const INIT = 'users/INIT'
 
 export const defaultState = {
   isFetching: false,
   fetchError: null,
-  users: [],
+  users: null,
   filters: {
     gender: 'all',
     numHits: 10
@@ -19,6 +20,10 @@ export const defaultState = {
 
 export default function reducer (state=defaultState, action) {
   switch (action.type) {
+    case INIT: return {
+      ...state,
+      filters: action.payload
+    }
     case FETCH_REQUEST: return {
       ...state,
       isFetching: true
@@ -52,8 +57,14 @@ export default function reducer (state=defaultState, action) {
 
 // ACTION CREATORS
 
-export const fetchRequest = () => ({
-  type: FETCH_REQUEST
+export const init = filters => ({
+  type: INIT,
+  payload: Object.assign({}, defaultState.filters, filters)
+})
+
+export const fetchRequest = filters => ({
+  type: FETCH_REQUEST,
+  payload: filters
 })
 
 export const fetchSuccess = users => ({
@@ -83,18 +94,18 @@ addRule({
   target: FETCH_REQUEST,
   output: [FETCH_SUCCESS, FETCH_FAILURE],
   concurrency: 'SWITCH',
-  consequence: ({getState}) => {
-    const state = getState()
-    return api.fetchUsers(state.users.filters).then(
-      result => fetchSuccess(result),
-      error => fetchFailure(error)
-    )
-  }
+  consequence: ({action}) => api.fetchUsers(action.payload).then(
+    result => fetchSuccess(result),
+    error => fetchFailure(error)
+  )
 })
 
 addRule({
   id: 'users/TRIGGER_FETCH',
-  target: [SET_GENDER, SET_NUM_HITS],
+  target: [INIT, SET_GENDER, SET_NUM_HITS],
   output: FETCH_REQUEST,
-  consequence: () => fetchRequest()
+  consequence: ({getState}) => {
+    const state = getState()
+    return fetchRequest(state.users.filters)
+  }
 })
