@@ -4,7 +4,6 @@ import useUserList from '../hooks/useUserList'
 
 export default function UserList () {
   const userList = useUserList()
-  console.log(userList)
   return (
     <Wrapper>
       <div className='title'>
@@ -118,6 +117,7 @@ const Filter = styled.div`
     font-size: 16px;
     line-height: 25px;
     padding-left: 10px;
+    text-align: center;
   }
 `
 
