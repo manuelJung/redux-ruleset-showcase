@@ -2,6 +2,7 @@ import * as React from 'react'
 import 'highlight.js/styles/github.css'
 import hljs from 'highlight.js/lib/highlight'
 import javascript from 'highlight.js/lib/languages/javascript'
+import UserList from './components/UserList'
 hljs.registerLanguage('javascript', javascript)
 
 export default function App() {
@@ -18,6 +19,8 @@ export default function App() {
 console.log('hello world')
 `}
         </code></pre>
+
+      <UserList/>
     </div>
   )
 }

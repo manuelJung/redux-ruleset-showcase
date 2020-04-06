@@ -84,7 +84,7 @@ export const setGender = gender => ({
 })
 
 export const setNumHits = numHits => ({
-  type: SET_GENDER,
+  type: SET_NUM_HITS,
   payload: numHits
 })
 
