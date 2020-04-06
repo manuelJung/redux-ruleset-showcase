@@ -96,7 +96,7 @@ const Wrapper = styled.div`
 
 const Filter = styled.div`
   border: 1px solid grey;
-  padding: 10px;
+  padding: 10px 20vw;
   padding-top: 20px;
   border-radius: 3px;
   position: relative;
