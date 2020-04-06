@@ -1,26 +1,25 @@
 import * as React from 'react'
+import styled from 'styled-components'
 import 'highlight.js/styles/github.css'
 import hljs from 'highlight.js/lib/highlight'
 import javascript from 'highlight.js/lib/languages/javascript'
-import UserList from './components/UserList'
-import Code from './components/Code'
 hljs.registerLanguage('javascript', javascript)
 
-const demoCode= `
-// comment
-console.log('foo)
-`
-
-export default function App() {
+export default function Code ({content}) {
   const code = React.useRef()
   React.useEffect(() => {
     if(!code.current) return
     hljs.highlightBlock(code.current)
-  })
+  },[content])
   return (
-    <div className="App">
-      <Code content={demoCode}/>
-      <UserList/>
-    </div>
+    <Wrapper>
+      <pre>
+        <code ref={code} className="language-javascript">
+          {content}
+        </code>
+      </pre>
+    </Wrapper>
   )
 }
+
+const Wrapper = styled.div``
