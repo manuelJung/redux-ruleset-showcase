@@ -1,11 +1,16 @@
 import {createStore, compose, applyMiddleware} from 'redux'
 import ruleMiddleware from 'redux-ruleset'
+
 import usersModule from './modules/users'
-import './modules/tracking'
+import snackbarModule from './modules/snackbar'
+
+import './features/tracking'
+import './features/showErrors'
 
 function rootReducer (state={}, action) {
   return {
-    users: usersModule(state.users, action)
+    users: usersModule(state.users, action),
+    snackbar: snackbarModule(state.snackbar, action)
   }
 }
 

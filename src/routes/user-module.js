@@ -1,5 +1,6 @@
 import * as React from 'react'
 import styled from 'styled-components'
+import UserList from '../components/UserList'
 
 export default function UserModuleRoute () {
   return (
@@ -11,6 +12,8 @@ export default function UserModuleRoute () {
         and filters (gender and hits-per-page) and manages the api 
         call to our demo-user api.
       </p>
+
+      <UserList/>
     </Wrapper>
   )
 }
