@@ -14,7 +14,7 @@ export const defaultState = {
   hits: null,
   filters: {
     gender: 'all',
-    numHits: 10
+    numHits: 4
   }
 }
 

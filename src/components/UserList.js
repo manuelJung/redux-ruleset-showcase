@@ -65,7 +65,12 @@ const Wrapper = styled.div`
     margin-bottom: 10px;
   }
   > .hits {
+    display: flex;
+    flex-wrap: wrap;
     > .hit {
+      text-align: left;
+      flex-basis: 50%;
+      @media(max-width: 450px){ flex-basis: 100%; }
       padding: 10px 0;
       border-bottom: 1px solid grey;
       display: flex;
@@ -96,7 +101,7 @@ const Wrapper = styled.div`
 
 const Filter = styled.div`
   border: 1px solid grey;
-  padding: 10px 20vw;
+  padding: 10px;
   padding-top: 20px;
   border-radius: 3px;
   position: relative;
