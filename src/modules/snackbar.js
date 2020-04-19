@@ -36,6 +36,10 @@ export const removeMessage = msg => ({
 
 // RULES
 
+/**
+ * When a message gets added
+ * Then we remove this message after 3 seconds
+ */
 addRule({
   id: 'snackbar/REMOVE_MESSAGE_AFTER_TIME',
   target: ADD_MESSAGE,
