@@ -45,5 +45,5 @@ addRule({
   target: ADD_MESSAGE,
   output: REMOVE_MESSAGE,
   delay: 3000,
-  consequence: ({action}) => removeMessage(action.payload)
+  consequence: action => removeMessage(action.payload)
 })

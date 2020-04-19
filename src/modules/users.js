@@ -100,7 +100,7 @@ addRule({
   target: FETCH_REQUEST,
   output: [FETCH_SUCCESS, FETCH_FAILURE],
   concurrency: 'SWITCH',
-  consequence: ({action}) => api.fetchUsers(action.payload).then(
+  consequence: action => api.fetchUsers(action.payload).then(
     result => fetchSuccess(result),
     error => fetchFailure(error)
   )
@@ -114,7 +114,7 @@ addRule({
   id: 'users/TRIGGER_FETCH',
   target: [INIT, SET_GENDER, SET_NUM_HITS],
   output: FETCH_REQUEST,
-  consequence: ({getState}) => {
+  consequence: (_,{getState}) => {
     const state = getState()
     return fetchRequest(state.users.filters)
   }
@@ -130,7 +130,7 @@ addRule({
   id: 'users/PREVENT_INIT',
   target: INIT,
   position: 'INSTEAD',
-  condition: (action,getState) => {
+  condition: (action,{getState}) => {
     const state = getState()
     if(!state.users.hits) return false
     for (let key in action.payload) {
