@@ -2,6 +2,7 @@ import * as React from 'react'
 import styled from 'styled-components'
 import UserList from '../components/UserList'
 import Code from '../components/Code'
+import LinkList from '../components/LinkList'
 
 export default function UserModuleRoute () {
   return (
@@ -88,8 +89,13 @@ export default function UserModuleRoute () {
       <p>
         Out <b>users/FETCH</b> rule fetches our data and dispatches the result.
         Note the <i>SWITCH</i> concurrency. With this concurrency we can be shure,
-        that only the most recent SUCCESS action gets dispatched last.
+        that only the most recent SUCCESS action gets dispatched last
       </p>
+
+      <LinkList
+        prev={['/', 'Test']}
+        next={['/', 'Test']}
+      />
     </Wrapper>
   )
 }
