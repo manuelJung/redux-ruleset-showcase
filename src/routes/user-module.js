@@ -93,8 +93,7 @@ export default function UserModuleRoute () {
       </p>
 
       <LinkList
-        prev={['/', 'Test']}
-        next={['/', 'Test']}
+        next={['/snackbar-module', 'Snackbar Module']}
       />
     </Wrapper>
   )
