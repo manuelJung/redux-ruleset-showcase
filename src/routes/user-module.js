@@ -26,9 +26,9 @@ export default function UserModuleRoute () {
       </p>
 
       <ul>
-        <li>setting the gender <b>users/SET_GENDER</b></li>
-        <li>setting num-hits <b>users/SET_NUM_HITS</b></li>
-        <li>setting all filters <b>users/INIT</b></li>
+        <li>set the gender <b>users/SET_GENDER</b></li>
+        <li>set num-hits <b>users/SET_NUM_HITS</b></li>
+        <li>set all filters <b>users/INIT</b></li>
       </ul>
 
       <p>
