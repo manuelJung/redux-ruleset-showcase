@@ -93,7 +93,7 @@ export const setNumHits = numHits => ({
 /**
  * When we see a users/FETCH_REQUEST
  * Then we fetch the new users (by given filters)
- * and dispatch either users/FETCH_SUCCESS or users/FETCH_FAILURE
+ * and dispatch either the result or the error
  */
 addRule({
   id: 'users/FETCH',
@@ -108,7 +108,7 @@ addRule({
 
 /**
  * When an action gets dispatched that changes the filters
- * Then we want to dispatch users/FETCH_REQUEST
+ * Then we want to trigger a new user-fetch
  */
 addRule({
   id: 'users/TRIGGER_FETCH',
