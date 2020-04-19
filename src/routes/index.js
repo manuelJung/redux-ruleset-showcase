@@ -15,6 +15,8 @@ export default function IndexRoute () {
 
       <ul>
         <li><Link to='/user-module'>The users module</Link></li>
+        <li><Link to='/snackbar-module'>The snackbar module</Link></li>
+        <li><Link to='/cancelation'>cancel actions</Link></li>
       </ul>
     </Wrapper>
   )
@@ -24,4 +26,8 @@ const Wrapper = styled.div`
   text-align: center;
   margin: 0 auto;
   max-width: 600px;
+
+  li {
+    line-height: 30px;
+  }
 `

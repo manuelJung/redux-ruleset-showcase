@@ -132,10 +132,11 @@ addRule({
   position: 'INSTEAD',
   condition: (action,{getState}) => {
     const state = getState()
-    if(!state.users.hits) return false
-    for (let key in action.payload) {
-      if(action.payload[key] !== state.users.filters[key]) return false
-    }
+    const {hits, filters} = state.users
+    const {gender, numHits} = action.payload
+    if(!hits) return false
+    if(filters.gender !== gender) return false
+    if(filters.numHits !== numHits) return false
     return true
   },
   consequence: () => null
