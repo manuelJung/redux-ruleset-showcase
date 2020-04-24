@@ -33,8 +33,8 @@ export default function SnackbarModuleRoute () {
          */
         addRule({
           id: 'feature/SHOW_FETCH_USER_ERROR',
-          target: users.FETCH_FAILURE,
-          output: snackbar.ADD_MESSAGE,
+          target: 'users/FETCH_FAILURE',
+          output: 'snackbar/ADD_MESSAGE',
           consequence: action => snackbar.addMessage({
             type: 'error',
             message: action.payload
@@ -54,8 +54,8 @@ export default function SnackbarModuleRoute () {
          */
         addRule({
           id: 'snackbar/REMOVE_MESSAGE_AFTER_TIME',
-          target: ADD_MESSAGE,
-          output: REMOVE_MESSAGE,
+          target: 'snackbar/ADD_MESSAGE',
+          output: 'snackbar/REMOVE_MESSAGE',
           delay: 3000,
           consequence: action => removeMessage(action.payload)
         })

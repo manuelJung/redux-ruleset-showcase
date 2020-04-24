@@ -33,7 +33,7 @@ export default function CancelationRoute () {
          */
         addRule({
           id: 'users/PREVENT_INIT',
-          target: INIT,
+          target: 'users/INIT',
           position: 'INSTEAD',
           condition: (action,{getState}) => {
             const state = getState()
