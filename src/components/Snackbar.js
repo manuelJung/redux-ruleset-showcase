@@ -8,7 +8,7 @@ export default function Snackbar () {
   return (
     <Wrapper>
       {messages.data.map((msg,i) => (
-        <Msg key={i}>{msg.message}</Msg>
+        <Msg key={i}>{msg}</Msg>
       ))}
     </Wrapper>
   )

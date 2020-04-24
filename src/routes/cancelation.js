@@ -67,7 +67,7 @@ export default function CancelationRoute () {
 
       <LinkList
         prev={['/snackbar-module', 'Snackbar Module']}
-        // next={['/cancelation', 'Cancelation']}
+        next={['/mutation', 'Action Mutations']}
       />
     </Wrapper>
   )

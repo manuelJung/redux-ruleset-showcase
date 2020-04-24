@@ -35,10 +35,7 @@ export default function SnackbarModuleRoute () {
           id: 'feature/SHOW_FETCH_USER_ERROR',
           target: 'users/FETCH_FAILURE',
           output: 'snackbar/ADD_MESSAGE',
-          consequence: action => snackbar.addMessage({
-            type: 'error',
-            message: action.payload
-          })
+          consequence: action => snackbar.addMessage(action.payload)
         })
         })
       `}/>
