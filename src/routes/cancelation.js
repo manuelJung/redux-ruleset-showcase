@@ -58,6 +58,13 @@ export default function CancelationRoute () {
 
       <button onClick={initUsers}>init</button>
 
+      <p>
+        Open the devtools. Behind the second <b>users/INIT</b> action we can see a
+        red <b>C</b>. This indicates that the action got canceled. When you click
+        on the action you can see that two rules are attached to this action. The 
+        first one canceled the action so the second one shows the flag <b>not reached</b>
+      </p>
+
       <LinkList
         prev={['/snackbar-module', 'Snackbar Module']}
         // next={['/cancelation', 'Cancelation']}
