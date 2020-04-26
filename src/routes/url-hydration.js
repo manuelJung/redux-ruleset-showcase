@@ -56,6 +56,52 @@ export default function UrlHydrationRoute () {
 
       {mount && <UserList />}
 
+      <p>
+        Now we need a rule for hydrating this state. Whenever we create our user
+        list, we initially dispatch the action <b>users/INIT</b>. We can mutate
+        this action and override it with the filters in our url:
+      </p>
+
+      <Code trim={6} content={`
+        /**
+         * When we init out user module
+         * and the url hash includes filters
+         * Then we init our user module by the hash filters
+         */
+        addRule({
+          id: 'feature/HYDRATE_FROM_URL',
+          target: 'users/INIT',
+          output: 'users/INIT',
+          position: 'INSTEAD',
+          condition: () => window.location.hash.includes('num-hits='),
+          consequence: () => {
+            const {hash} = window.location
+            const numHits = hash.match(/num-hits=(.*)&/)[1]
+            const gender = hash.match(/gender=(.*)/)[1]
+            return users.init({numHits, gender})
+          }
+        })
+      `}/>
+
+      <p>
+        Reload this page. you can see, that our user filters were hydrated
+        correctly. Open the devtools and look, how this is reflected.
+      </p>
+
+      <p>
+        Did you noticed what happened? We were able to implement a quite 
+        complex feature without the need to touch our user module or any
+        react component. The rest of our application does not even know
+        that we can hydrate filters from the url. 
+      </p>
+
+      <p>
+        Each rule is like a little program within your application that can
+        extend, cancel or mutate your dataflow in an isolated way. Your
+        application will never increase in complexity. And with the devtools
+        you can see the relations how each rule can affect your data-flow.
+      </p>
+
       <LinkList
         prev={['/mutation', 'Action Mutations']}
         // next={['/url-hydration', 'Url Hydration']}

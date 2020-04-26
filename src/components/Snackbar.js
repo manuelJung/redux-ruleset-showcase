@@ -15,7 +15,7 @@ export default function Snackbar () {
 }
 
 const Wrapper = styled.div`
-  position: absolute;
+  position: fixed;
   left: 0;
   right: 0;
   bottom: 0;
