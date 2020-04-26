@@ -2,6 +2,8 @@ import * as React from 'react'
 import styled from 'styled-components'
 import {Link} from '@reach/router'
 
+const devtools = 'https://chrome.google.com/webstore/detail/redux-ruleset/diibnbdfcjddnpmlhakebmiabmhhmnii'
+
 export default function IndexRoute () {
   return (
     <Wrapper>
@@ -11,6 +13,13 @@ export default function IndexRoute () {
         Welcome to the showcase of redux-ruleset. In this application you 
         will learn how advanced concepts of redux ruleset work and how to
         use the devtools to model your dataflow. 
+      </p>
+
+      <p>
+        Before you start you should add the <a href={devtools} target='_blank'>ruleset-devtools</a> chrome
+        plugin (Firefox not available yet). A basic understanding 
+        of <a href='https://redux-ruleset.netlify.com/' target='_blank'>redux-ruleset</a> is also 
+        helpfull but not required.
       </p>
 
       <ul>
