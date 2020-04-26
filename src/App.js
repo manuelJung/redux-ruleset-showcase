@@ -7,6 +7,7 @@ import UserModule from './routes/user-module'
 import SnackbarModule from './routes/snackbar-module'
 import Cancelation from './routes/cancelation'
 import Mutation from './routes/mutation'
+import UrlHydration from './routes/url-hydration'
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
         <SnackbarModule path='/snackbar-module'/>
         <Cancelation path='/cancelation'/>
         <Mutation path='/mutation'/>
+        <UrlHydration path='/url-hydration'/>
       </Router>
       <Snackbar/>
     </div>

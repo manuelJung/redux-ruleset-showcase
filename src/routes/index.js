@@ -17,6 +17,8 @@ export default function IndexRoute () {
         <li><Link to='/user-module'>The users module</Link></li>
         <li><Link to='/snackbar-module'>The snackbar module</Link></li>
         <li><Link to='/cancelation'>cancel actions</Link></li>
+        <li><Link to='/mutation'>Action Mutations</Link></li>
+        <li><Link to='/url-hydration'>Url Hydration</Link></li>
       </ul>
     </Wrapper>
   )

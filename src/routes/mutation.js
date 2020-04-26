@@ -75,7 +75,7 @@ export default function MutationRoute () {
 
       <LinkList
         prev={['/cancelation', 'Cancelation']}
-        // next={['/mutation', 'Action Mutations']}
+        next={['/url-hydration', 'Url Hydration']}
       />
 
     </Wrapper>
