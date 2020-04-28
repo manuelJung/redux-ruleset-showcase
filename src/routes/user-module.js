@@ -42,16 +42,16 @@ export default function UserModuleRoute () {
          * Then we want to trigger a new user-fetch
          */
         addRule({
-          id: 'users/TRIGGER_FETCH',
-          target: [
+          id: 'users/TRIGGER_FETCH', // name of the rule
+          target: [ // action types the rule listens to
             'users/INIT', 
             'users/SET_GENDER', 
             'users/SET_NUM_HITS'
           ],
-          output: 'users/FETCH_REQUEST',
+          output: 'users/FETCH_REQUEST', // the output action type
           consequence: (_,{getState}) => {
             const state = getState()
-            return fetchRequest(state.users.filters)
+            return fetchRequest(state.users.filters) // dispatch
           }
         })
       `} />
@@ -93,7 +93,7 @@ export default function UserModuleRoute () {
       </p>
 
       <LinkList
-        next={['/snackbar-module', 'Snackbar Module']}
+        next={['/tracking', 'Tracking']}
       />
     </Wrapper>
   )

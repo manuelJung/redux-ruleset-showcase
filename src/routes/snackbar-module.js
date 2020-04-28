@@ -65,7 +65,7 @@ export default function SnackbarModuleRoute () {
       </p>
 
       <LinkList
-        prev={['/user-module', 'User Module']}
+        prev={['/tracking', 'Tracking']}
         next={['/cancelation', 'Cancelation']}
       />
     </Wrapper>

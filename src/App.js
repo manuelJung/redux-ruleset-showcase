@@ -8,6 +8,7 @@ import SnackbarModule from './routes/snackbar-module'
 import Cancelation from './routes/cancelation'
 import Mutation from './routes/mutation'
 import UrlHydration from './routes/url-hydration'
+import Tracking from './routes/tracking'
 
 export default function App() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
         <Cancelation path='/cancelation'/>
         <Mutation path='/mutation'/>
         <UrlHydration path='/url-hydration'/>
+        <Tracking path='/tracking'/>
       </Router>
       <Snackbar/>
     </div>
