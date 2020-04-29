@@ -1,7 +1,7 @@
 import {addRule} from 'redux-ruleset'
 import * as users from '../modules/users'
 
-function sendEvent (event) {
+export function sendEvent (event) {
   console.log('send ga event', event)
 }
 

@@ -28,6 +28,7 @@ export default function IndexRoute () {
         <li><Link to='/cancelation'>cancel actions</Link></li>
         <li><Link to='/mutation'>Action Mutations</Link></li>
         <li><Link to='/url-hydration'>Url Hydration</Link></li>
+        <li><Link to='/sagas'>Sagas</Link></li>
       </ul>
     </Wrapper>
   )

@@ -9,6 +9,7 @@ import Cancelation from './routes/cancelation'
 import Mutation from './routes/mutation'
 import UrlHydration from './routes/url-hydration'
 import Tracking from './routes/tracking'
+import Sagas from './routes/sagas'
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
         <Mutation path='/mutation'/>
         <UrlHydration path='/url-hydration'/>
         <Tracking path='/tracking'/>
+        <Sagas path='/sagas'/>
       </Router>
       <Snackbar/>
     </div>
