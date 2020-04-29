@@ -10,10 +10,12 @@ import Mutation from './routes/mutation'
 import UrlHydration from './routes/url-hydration'
 import Tracking from './routes/tracking'
 import Sagas from './routes/sagas'
+import Analytics from './components/Analytics'
 
 export default function App() {
   return (
     <div className="App">
+      {process.env.NODE_ENV === 'production' && <Analytics/>}
       <Router>
         <IndexRoute path='/'/>
         <UserModule path='/user-module'/>
